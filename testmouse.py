@@ -1,30 +1,33 @@
 from pynput.mouse import Controller
 import keyboard
 
-mouse = Controller()
-
-def get_position():
+def get_position(self):
+    print('q is pressed')
+    array = []
     i = 0
-    while True:
-        array = []
-        q = keyboard.is_pressed('q')
-        if q == True:
-            print('q is pressed')
-            i += 1
-            print(i)
-            if i==1:
-                print('#')
-                array.append((mouse.position)[0])
-                array.append((mouse.position)[1])
-                print(array)
-                i = 0
-            if i > 1:
-                return 0
-        continue
+    if i==0:
+        print('#')
+        array.append((mouse.position)[0])
+        array.append((mouse.position)[1])
+        i += 1
+        # print(array)
+        return array
+    elif i > 0: return
+    # if i == 2:
+    #     print('##')
+    #     array.append((mouse.position)[0])
+    #     array.append((mouse.position)[1])
+    #     print(array)
+    #     i = 0
+    #     continue
 
 if __name__ == '__main__':
-    get_position()
-
+    while True:
+        q = keyboard.is_pressed('q')
+        if q == True:
+            print(get_position())
+        else :
+            continue
 
 
 
