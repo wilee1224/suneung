@@ -1,0 +1,15 @@
+from pynput.mouse import Controller
+import keyboard
+
+mouse = Controller()
+
+i = 0
+while True:
+    q = keyboard.is_pressed('q')
+    if q == True:
+        print('q is pressed')
+        i += 1
+        print(i)
+        if i%2 ==0:
+            print('###')
+            print(str(mouse.position))
